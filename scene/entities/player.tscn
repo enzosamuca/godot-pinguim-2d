@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b41yskl5widet" path="res://sprites/1 - Penguin/Falling (16 x 16).png" id="3_1mh30"]
 [ext_resource type="Texture2D" uid="uid://dmvt60fdu6x65" path="res://sprites/1 - Penguin/Jump (16 x 16).png" id="3_cq81n"]
 [ext_resource type="Texture2D" uid="uid://divcaalc82lrb" path="res://sprites/1 - Penguin/Waddling (16 x 16).png" id="3_px1bn"]
+[ext_resource type="PackedScene" uid="uid://brts46lsfcxe7" path="res://scene/mobileControls.tscn" id="7_kn8yv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dnu2x"]
 radius = 5.0
@@ -145,3 +146,5 @@ position = Vector2(1, 0)
 scale = Vector2(0.9374995, 1.045)
 sprite_frames = SubResource("SpriteFrames_u8885")
 animation = &"fall"
+
+[node name="CanvasLayer" parent="." unique_id=1854631050 instance=ExtResource("7_kn8yv")]

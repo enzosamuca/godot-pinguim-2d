@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://brts46lsfcxe7"]
+
+[ext_resource type="Texture2D" uid="uid://bbdo2etbh5w1l" path="res://assets/buttons/left.png" id="1_pw8cq"]
+[ext_resource type="Texture2D" uid="uid://dpsln0mpdb867" path="res://assets/buttons/right.png" id="2_5xdxy"]
+[ext_resource type="Texture2D" uid="uid://c8wsk35qx5k1i" path="res://assets/buttons/up.png" id="3_rfuan"]
+[ext_resource type="Texture2D" uid="uid://d176bd221cxlx" path="res://assets/buttons/down.png" id="4_0yn47"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1854631050]
+
+[node name="left" type="TouchScreenButton" parent="." unique_id=11990080]
+modulate = Color(1, 1, 1, 0.46666667)
+position = Vector2(3, 172)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_pw8cq")
+passby_press = true
+action = "left"
+
+[node name="right" type="TouchScreenButton" parent="." unique_id=2113556528]
+modulate = Color(1, 1, 1, 0.46666667)
+position = Vector2(38, 172)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_5xdxy")
+passby_press = true
+action = "right"
+
+[node name="jump" type="TouchScreenButton" parent="." unique_id=720280023]
+modulate = Color(1, 1, 1, 0.46666667)
+position = Vector2(363, 138)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_rfuan")
+passby_press = true
+action = "jump"
+
+[node name="duck" type="TouchScreenButton" parent="." unique_id=1346247160]
+modulate = Color(1, 1, 1, 0.46666667)
+position = Vector2(363, 172)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_0yn47")
+passby_press = true
+action = "duck"
