@@ -33,7 +33,6 @@ metadata/_edit_vertical_guides_ = [864.0]
 
 [node name="player" parent="." unique_id=442542225 groups=["player"] instance=ExtResource("1_bmxgx")]
 position = Vector2(25, 166)
-max_jump_count = 2
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=55245139]
 

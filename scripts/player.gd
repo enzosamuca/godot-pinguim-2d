@@ -73,7 +73,7 @@ func exit_from_duck_state():
 	collision_shape.shape.radius = 5.0
 	collision_shape.shape.height = 35.0
 	collision_shape.position.x = 1
-	collision_shape.position.y = 2
+	collision_shape.position.y = 1
 	
 func idle_state():
 	move()
