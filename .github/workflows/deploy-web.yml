@@ -15,7 +15,7 @@ jobs:
     name: Web Export & Deploy
     runs-on: ubuntu-24.04
     container:
-      image: barichello/godot-ci:4.6-stable
+      image: barichello/godot-ci:4.6
     steps:
       - name: Checkout
         uses: actions/checkout@v4
