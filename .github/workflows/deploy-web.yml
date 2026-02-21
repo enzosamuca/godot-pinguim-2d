@@ -37,6 +37,9 @@ jobs:
           mkdir -v -p build/web
           godot --headless --verbose --export-release "Web" build/web/dist-web.html
 
+      - name: Rename to index.html
+        run: mv build/web/dist-web.html build/web/index.html
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
