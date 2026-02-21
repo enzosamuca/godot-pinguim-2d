@@ -1,0 +1,56 @@
+name: Export and Deploy Web
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+env:
+  GODOT_VERSION: "4.6"
+
+jobs:
+  export-web:
+    name: Web Export & Deploy
+    runs-on: ubuntu-24.04
+    container:
+      image: barichello/godot-ci:4.6
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Setup export templates
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable \
+             ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+      - name: Import project assets
+        run: godot --headless --verbose --import
+        timeout-minutes: 10
+
+      - name: Export for Web
+        run: |
+          mkdir -v -p build/web
+          godot --headless --verbose --export-release "Web" build/web/dist-web.html
+
+      - name: Rename to index.html
+        run: mv build/web/dist-web.html build/web/index.html
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: build/web/
+          retention-days: 7
+
+      - name: Deploy to deploy branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
+          publish_branch: deploy
+          force_orphan: true
