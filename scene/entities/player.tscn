@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b41yskl5widet" path="res://sprites/1 - Penguin/Falling (16 x 16).png" id="3_1mh30"]
 [ext_resource type="Texture2D" uid="uid://dmvt60fdu6x65" path="res://sprites/1 - Penguin/Jump (16 x 16).png" id="3_cq81n"]
 [ext_resource type="Texture2D" uid="uid://divcaalc82lrb" path="res://sprites/1 - Penguin/Waddling (16 x 16).png" id="3_px1bn"]
+[ext_resource type="Texture2D" uid="uid://bjc4wf4lguse8" path="res://sprites/1 - Penguin/Belly_Sliding (16 x 16).png" id="6_u8885"]
 [ext_resource type="PackedScene" uid="uid://brts46lsfcxe7" path="res://scene/mobileControls.tscn" id="7_kn8yv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dnu2x"]
@@ -35,6 +36,18 @@ region = Rect2(64, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1uonj"]
 atlas = ExtResource("3_cq81n")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s8uh"]
+atlas = ExtResource("6_u8885")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63u5j"]
+atlas = ExtResource("6_u8885")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k55ny"]
+atlas = ExtResource("6_u8885")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8885"]
 atlas = ExtResource("3_px1bn")
@@ -108,6 +121,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_0s8uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63u5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k55ny")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_u8885")
 }, {
 "duration": 1.0,
@@ -136,6 +163,7 @@ collision_mask = 9
 script = ExtResource("1_jsnrl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=617940542]
+visible = false
 position = Vector2(1, 1)
 scale = Vector2(1.12, 0.39999753)
 shape = SubResource("CapsuleShape2D_dnu2x")
@@ -145,6 +173,7 @@ z_index = 1
 position = Vector2(1, 0)
 scale = Vector2(0.9374995, 1.045)
 sprite_frames = SubResource("SpriteFrames_u8885")
-animation = &"fall"
+animation = &"slide"
+frame_progress = 0.09544556
 
 [node name="CanvasLayer" parent="." unique_id=1854631050 instance=ExtResource("7_kn8yv")]
