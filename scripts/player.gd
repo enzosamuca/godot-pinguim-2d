@@ -94,7 +94,9 @@ func go_to_dead_state():
 	
 func idle_state(delta):
 	move(delta)
-	if velocity.x != 0:
+	
+	#if velocity.x != 0:
+	if direction != 0:
 		go_to_walk_state()
 		return
 		
@@ -108,7 +110,9 @@ func idle_state(delta):
 	
 func walk_state(delta):
 	move(delta)
-	if velocity.x ==0:
+	
+	#if velocity.x == 0:
+	if direction == 0 and velocity.x == 0:
 		go_to_idle_state()
 		return
 		
