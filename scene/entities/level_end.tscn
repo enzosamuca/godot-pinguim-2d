@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cy18r5i36l0dw" path="res://scripts/level_end.gd" id="1_ssuq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dblyr"]
+size = Vector2(20, 193)
 
 [node name="level end" type="Area2D" unique_id=1943649783]
 collision_layer = 8
@@ -10,6 +11,7 @@ collision_mask = 2
 script = ExtResource("1_ssuq7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1530023816]
+position = Vector2(0, -40.5)
 shape = SubResource("RectangleShape2D_dblyr")
 debug_color = Color(0.9991204, 0, 0.13608146, 0.41960785)
 
