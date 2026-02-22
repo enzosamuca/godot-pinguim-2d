@@ -54,3 +54,6 @@ jobs:
           publish_dir: ./build/web
           publish_branch: deploy
           force_orphan: true
+
+      - name: Trigger Render deploy
+        run: curl -fsSL "${{ secrets.RENDER_WEBHOOK }}"
