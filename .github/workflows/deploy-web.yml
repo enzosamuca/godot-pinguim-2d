@@ -56,4 +56,4 @@ jobs:
           force_orphan: true
 
       - name: Trigger Render deploy
-        run: curl -fsSL "${{ secrets.RENDER_WEBHOOK }}"
+        run: wget -qO- "${{ secrets.RENDER_WEBHOOK }}"
