@@ -200,4 +200,9 @@ position = Vector2(1.5, 0.5)
 shape = SubResource("RectangleShape2D_u8885")
 debug_color = Color(0.9554786, 1.2513996e-06, 0.54554915, 0.41960785)
 
+[node name="ReloadTimer" type="Timer" parent="." unique_id=1996449589]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
