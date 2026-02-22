@@ -168,7 +168,7 @@ tile_map_data = PackedByteArray("AAAAAAwAAwADAAYAAAABAAwAAwAEAAYAAAACAAwAAwAEAAY
 tile_set = ExtResource("2_j8vhl")
 
 [node name="level end" parent="tile" unique_id=1943649783 instance=ExtResource("12_64es3")]
-next_level = "tropic"
+next_level = "ice"
 
 [node name="CollisionShape2D" parent="tile/level end" index="0" unique_id=1530023816]
 position = Vector2(974, 90)
