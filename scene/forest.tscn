@@ -12,6 +12,7 @@
 [ext_resource type="TileSet" uid="uid://bar4iircfjxg7" path="res://tiles/decoration/decoração.tres" id="10_gwku7"]
 [ext_resource type="Texture2D" uid="uid://bsdagphgwk37p" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Terrain (16 x 16).png" id="10_jxvlp"]
 [ext_resource type="PackedScene" uid="uid://cu58omkltpe8n" path="res://scene/entities/level_end.tscn" id="12_64es3"]
+[ext_resource type="PackedScene" uid="uid://ct012g6f4t2hx" path="res://scene/entities/skeleton.tscn" id="13_kmspj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwku7"]
 texture = ExtResource("10_jxvlp")
@@ -172,5 +173,14 @@ next_level = "tropic"
 [node name="CollisionShape2D" parent="tile/level end" index="0" unique_id=1530023816]
 position = Vector2(974, 90)
 shape = SubResource("RectangleShape2D_kmspj")
+
+[node name="skeleton1" parent="." unique_id=1657278921 instance=ExtResource("13_kmspj")]
+position = Vector2(100, 176)
+
+[node name="skeleton2" parent="." unique_id=1808185034 instance=ExtResource("13_kmspj")]
+position = Vector2(327, 175)
+
+[node name="skeleton3" parent="." unique_id=1367758715 instance=ExtResource("13_kmspj")]
+position = Vector2(482, 80)
 
 [editable path="tile/level end"]
