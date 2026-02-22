@@ -6,7 +6,8 @@ enum playerstate {
 	jump,
 	fall,
 	duck,
-	slide
+	slide,
+	dead
 }
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -46,7 +47,8 @@ func _physics_process(delta: float) -> void:
 			duck_state(delta)
 		playerstate.slide:
 			slide_state(delta)
-			
+		playerstate.dead:
+			dead_state(delta)
 	move_and_slide()
 
 func go_to_idle_state():
@@ -82,6 +84,11 @@ func go_to_slide_state():
 	
 func exit_from_slide_state():
 	set_large_colider()
+	
+func go_to_dead_state():
+	status = playerstate.dead
+	anim.play("dead")
+	velocity = Vector2.ZERO
 	
 func idle_state(delta):
 	move(delta)
@@ -162,6 +169,9 @@ func slide_state(delta):
 		exit_from_slide_state()
 		go_to_duck_state()
 		return
+		
+func dead_state(_delta):
+	pass
 
 func move(delta):
 	update_direction()
@@ -190,3 +200,15 @@ func set_large_colider():
 	collision_shape.shape.height = 35.0
 	collision_shape.position.x = 1
 	collision_shape.position.y = 1
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	
+	# se esta caindo
+	if velocity.y > 0:
+		# inimigo morre
+		area.get_parent().queue_free()
+		go_to_jump_state()
+	else:
+		# player morre
+		go_to_dead_state()

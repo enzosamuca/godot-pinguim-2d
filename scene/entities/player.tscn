@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://b673mjg8iycan" path="res://scripts/player.gd" id="1_jsnrl"]
 [ext_resource type="Texture2D" uid="uid://dpca8oeo517dj" path="res://sprites/1 - Penguin/Ducking (16 x 16).png" id="2_6ac22"]
 [ext_resource type="Texture2D" uid="uid://dceqj86jl621" path="res://sprites/1 - Penguin/Idle (16 x 16).png" id="2_jp462"]
+[ext_resource type="Texture2D" uid="uid://cwwd1ufhk5fog" path="res://sprites/1 - Penguin/Hurt (16 x 16).png" id="2_qgaon"]
 [ext_resource type="Texture2D" uid="uid://b41yskl5widet" path="res://sprites/1 - Penguin/Falling (16 x 16).png" id="3_1mh30"]
+[ext_resource type="Texture2D" uid="uid://c2w018cwteyt7" path="res://sprites/1 - Penguin/Lying_On_Ground (16 x 16).png" id="3_38mrs"]
 [ext_resource type="Texture2D" uid="uid://dmvt60fdu6x65" path="res://sprites/1 - Penguin/Jump (16 x 16).png" id="3_cq81n"]
 [ext_resource type="Texture2D" uid="uid://divcaalc82lrb" path="res://sprites/1 - Penguin/Waddling (16 x 16).png" id="3_px1bn"]
 [ext_resource type="Texture2D" uid="uid://bjc4wf4lguse8" path="res://sprites/1 - Penguin/Belly_Sliding (16 x 16).png" id="6_u8885"]
@@ -75,6 +77,17 @@ region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8885"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qgaon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_38mrs")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 2.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_6ac22")
@@ -157,6 +170,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8885"]
+size = Vector2(11, 15)
+
 [node name="player" type="CharacterBody2D" unique_id=442542225]
 collision_layer = 2
 collision_mask = 9
@@ -173,7 +189,15 @@ z_index = 1
 position = Vector2(1, 0)
 scale = Vector2(0.9374995, 1.045)
 sprite_frames = SubResource("SpriteFrames_u8885")
-animation = &"slide"
-frame_progress = 0.09544556
+animation = &"dead"
 
 [node name="CanvasLayer" parent="." unique_id=1854631050 instance=ExtResource("7_kn8yv")]
+
+[node name="hitbox" type="Area2D" parent="." unique_id=290962174]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1923276703]
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_u8885")
+debug_color = Color(0.9554786, 1.2513996e-06, 0.54554915, 0.41960785)
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
