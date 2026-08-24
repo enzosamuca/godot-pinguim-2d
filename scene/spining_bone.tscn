@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://psawwpsvp2r"]
+
+[ext_resource type="Texture2D" uid="uid://tyyvux6eiiym" path="res://sprites/3 - Skeleton/Spinning_Bone (16 x 16).png" id="1_jabpy"]
+[ext_resource type="Script" uid="uid://bcsq8a04paod6" path="res://scripts/spining_bone.gd" id="1_x6voy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x6voy"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8dv1"]
+atlas = ExtResource("1_jabpy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r225y"]
+atlas = ExtResource("1_jabpy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgnxt"]
+atlas = ExtResource("1_jabpy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os4fb"]
+atlas = ExtResource("1_jabpy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o5jii"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8dv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r225y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgnxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os4fb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="spining bone" type="Area2D" unique_id=784987307]
+script = ExtResource("1_x6voy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=462062150]
+shape = SubResource("CircleShape2D_x6voy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=992138199]
+sprite_frames = SubResource("SpriteFrames_o5jii")
+autoplay = "default"
+frame_progress = 0.7808367
