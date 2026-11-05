@@ -1,0 +1,39 @@
+# .mind/manifest.yaml — manifesto da base de conhecimento de IA Mind
+# mind-generated: true  ← não remova; usado pela skill update-repo
+ai-knowledge-base:
+  version: "1.0"
+  repo: "enzosamuca/godot-pinguim-2d"
+  asset: "pinguim"
+  repo-type: "godot-game"          # tipo fora da lista padrão (jogo 2D em Godot/GDScript)
+  updated: "2026-11"
+  mindhub: "none"
+  owner-team: "unknown"            # não há CODEOWNERS no repo
+  language: "gdscript"
+  framework: "godot-4.6"
+  java-version: "N/A"
+  spring-boot-version: "N/A"
+  sonar-project-key: "unknown"     # sem sonar-project.properties
+
+  auto-load:
+    - .mind/context/overview.md
+    - .mind/context/domain.md
+    - .mind/instructions/code-patterns.md
+    - .mind/instructions/security.md
+
+  on-demand:
+    - path: .mind/context/business-logic.md
+      when: "lógica de jogo, máquina de estados, fluxo de fases, pulo, morte, inimigos, colisão"
+    - path: .mind/diagrams/cloud-architecture.md
+      when: "deploy, export web, Render, GitHub Pages, topologia"
+    - path: .mind/diagrams/data-flow.md
+      when: "fluxo de dados, input, sinais, troca de cena"
+    - path: .mind/topology/dependency-graph.md
+      when: "dependências, cenas, scripts, tilesets, grupos"
+    - path: .mind/topology/external-resources.md
+      when: "serviços externos, consumido por, webhook"
+    - path: .mind/devops/overview.md
+      when: "pipeline, CI, CD, GitHub Actions, export, branch, testes"
+    - path: .mind/evolution/
+      when: "em andamento, nova funcionalidade, desenvolvimento ativo, próximas entregas"
+
+  skills: []
