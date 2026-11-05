@@ -69,3 +69,7 @@ Custom gravity: `1352.36` (set in project.godot). Jolt Physics enabled for 3D en
 
 - `player` — Player node instances (used by camera to find follow target)
 - `inimigos` — Reserved for enemy entities
+
+# Mind — godot-pinguim-2d
+
+@.mind/agent-bootstrap.md
