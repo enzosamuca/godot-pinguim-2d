@@ -54,6 +54,3 @@ jobs:
           publish_dir: ./build/web
           publish_branch: deploy
           force_orphan: true
-
-      - name: Trigger Render deploy
-        run: wget -qO- "${{ secrets.RENDER_WEBHOOK }}"
